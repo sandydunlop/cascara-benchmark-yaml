@@ -9,6 +9,8 @@ import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 
+import io.github.qishr.cascara.lang.yaml.processor.YamlParser;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class HotBenchmark {
 
     private Yaml snakeYaml;
+    private YamlParser cascaraYaml;
 
     @Setup(Level.Trial)
     public void setup() {
@@ -34,6 +37,7 @@ public class HotBenchmark {
         options.setProcessComments(true);
         options.setMaxAliasesForCollections(Integer.MAX_VALUE);
         snakeYaml = new Yaml(new SafeConstructor(options));
+        cascaraYaml = new YamlParser();
     }
 
     // LSYAML Strict
@@ -100,5 +104,28 @@ public class HotBenchmark {
     @Benchmark
     public void snakeYaml_insane(Blackhole bh) {
         bh.consume(snakeYaml.load(YamlData.INSANE_YAML));
+    }
+
+
+    // Cascara YAML
+
+    @Benchmark
+    public void cascaraYaml_simple(Blackhole bh) {
+        bh.consume(cascaraYaml.parse(YamlData.SIMPLE_YAML));
+    }
+
+    @Benchmark
+    public void cascaraYaml_medium(Blackhole bh) {
+        bh.consume(cascaraYaml.parse(YamlData.MEDIUM_YAML));
+    }
+
+    @Benchmark
+    public void cascaraYaml_complex(Blackhole bh) {
+        bh.consume(cascaraYaml.parse(YamlData.COMPLEX_YAML));
+    }
+
+    @Benchmark
+    public void cascaraYaml_insane(Blackhole bh) {
+        bh.consume(cascaraYaml.parse(YamlData.INSANE_YAML));
     }
 }

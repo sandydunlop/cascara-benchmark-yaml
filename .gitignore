@@ -44,3 +44,5 @@ bin/
 target/
 !**/src/main/**/target/
 !**/src/test/**/target/
+benchmark.json
+recording.jfr

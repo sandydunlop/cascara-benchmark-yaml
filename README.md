@@ -1,10 +1,12 @@
-# LSYAML JMH Benchmark
+# Cascara YAML JMH Benchmark
 
-Proper JMH benchmarks comparing **LSYAML** against **SnakeYAML** across different YAML complexities and JVM conditions.
+Proper JMH benchmarks comparing **Cascara YAML** against **LSYAML** and **SnakeYAML** across different YAML complexities and JVM conditions.
+
+This project was forked from [LSYAML-Benchmark](https://github.com/vansencool/LSYAML-Benchmark).
 
 ## What this measures
 
-LSYAML is a lightning fast, format preserving YAML parser for Java. This project puts that claim to the test using
+Cascara YAML is a fast YAML parser for Java. This project puts that claim to the test using
 [JMH](https://github.com/openjdk/jmh), the standard Java microbenchmarking harness, so the numbers are reliable and
 reproducible.
 
@@ -18,6 +20,7 @@ Four YAML documents are tested at increasing complexity:
 | Insane   | Extremely large real-world stress test         | 1.4 MB    |
 
 Each document is parsed by three configurations:
+- **Cascara YAML** via `YamlParser.parse()`
 - **LSYAML (strict)** via `LSYAML.parseMap()` for complete YAML 1.2 validation
 - **LSYAML (lenient)** via `LSYAML.parse()` with `ParseOptions.lenient()` for flexible parsing
 - **SnakeYAML** via `Yaml.load()` with `SafeConstructor` for baseline comparison

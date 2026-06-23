@@ -14,11 +14,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <jmh.version>1.37</jmh.version>
         <snakeyaml.version>2.3</snakeyaml.version>
         <lsyaml.version>1.2.1</lsyaml.version>
+        <cascara.yaml.version>0.2.3</cascara.yaml.version>
     </properties>
 
     <repositories>
@@ -49,6 +50,16 @@
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <version>${snakeyaml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.qishr</groupId>
+            <artifactId>cascara-common</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.qishr</groupId>
+            <artifactId>cascara-lang-yaml</artifactId>
+            <version>${cascara.yaml.version}</version>
         </dependency>
     </dependencies>
 
