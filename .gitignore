@@ -46,3 +46,4 @@ target/
 !**/src/test/**/target/
 benchmark.json
 recording.jfr
+*.json

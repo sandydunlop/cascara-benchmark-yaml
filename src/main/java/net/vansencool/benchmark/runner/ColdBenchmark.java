@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Thread)
 @Warmup(iterations = 0)
-@Measurement(iterations = 50, batchSize = 1)
+@Measurement(iterations = 10, batchSize = 1)
 @Fork(5)
 @SuppressWarnings("unused")
 public class ColdBenchmark {
